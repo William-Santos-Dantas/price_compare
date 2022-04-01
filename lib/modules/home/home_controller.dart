@@ -17,7 +17,6 @@ class HomeController extends GetxController with LoaderMixin, MessagesMixin {
     messageListener(message);
   }
 
-
   void comparePrice({
     required String firstProduct,
     required double firstPrice,
@@ -26,5 +25,17 @@ class HomeController extends GetxController with LoaderMixin, MessagesMixin {
     required double firstQuantity,
     required double secondQuantity,
   }) {
+    double firstPriceML = firstPrice / firstQuantity;
+    double secondPriceML = secondPrice / secondQuantity;
+    double diference = 0;
+    if (firstPriceML < secondPriceML) {
+      diference = secondPriceML - firstPriceML;
+      _text(
+          'Você tem uma economia de $diference por litro comprando o $firstProduct');
+    } else {
+      diference = firstPriceML - secondPriceML;
+      _text(
+          'economia de R\$${diference.toStringAsPrecision(2)} por litro comprando $secondProduct');
+    }
   }
 }

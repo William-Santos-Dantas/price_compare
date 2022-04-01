@@ -128,6 +128,19 @@ class HomePage extends GetView<HomeController> {
                 },
                 text: 'Comparar Preços',
               ),
+              const SizedBox(height: 15),
+              Obx(
+                () => Center(
+                  child: Text(
+                    controller.text,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
